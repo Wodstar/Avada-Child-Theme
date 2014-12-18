@@ -1,0 +1,14 @@
+/*
+Theme Name: Wodstar
+Description: Child theme for the Avada
+Author: Wodstar
+Template: Avada
+*/
+
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.menu-item, .entry-title, .fusion-title {
+  text-transform: uppercase;
+}
