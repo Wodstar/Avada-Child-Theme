@@ -1,54 +1,42 @@
 /*
 Theme Name: Wodstar
 Description: Child theme for the Avada
+Github Theme URI: https://github.com/Wodstar/Avada-ChildTheme.git
 Author: Wodstar
 Template: Avada
 */
-/* line 8, /Users/jeff/Sites/Sandbox/wodstar_wordpress/wp-content/themes/Avada-Child-Theme/scss/style.scss */
 body {
   font-smoothing: subpixel-antialiased; }
 
-/* line 12, /Users/jeff/Sites/Sandbox/wodstar_wordpress/wp-content/themes/Avada-Child-Theme/scss/style.scss */
 .menu-item, .entry-title, .fusion-title, .sidebar .widget h3, .sidebar .widget .heading h3 {
   text-transform: uppercase; }
 
-/* line 16, /Users/jeff/Sites/Sandbox/wodstar_wordpress/wp-content/themes/Avada-Child-Theme/scss/style.scss */
 .fusion-blog-shortcode-1 .grid-layout .post:nth-child(-n+2), .category-movements:nth-child(-n+2), .category-wods:nth-child(-n+2), .category-articles:nth-child(-n+2) {
   padding-top: 0px !important; }
 
-/* line 20, /Users/jeff/Sites/Sandbox/wodstar_wordpress/wp-content/themes/Avada-Child-Theme/scss/style.scss */
 .fusion-blog-grid .post .post-content-container, .fusion-blog-timeline .post .post-content-container {
   padding: 30px 25px 5px !important; }
 
-/* line 24, /Users/jeff/Sites/Sandbox/wodstar_wordpress/wp-content/themes/Avada-Child-Theme/scss/style.scss */
 .image .image-extras .image-extras-content h3 a {
   font-size: 150% !important;
   text-transform: uppercase;
   line-height: 1.2rem; }
 
-/* line 30, /Users/jeff/Sites/Sandbox/wodstar_wordpress/wp-content/themes/Avada-Child-Theme/scss/style.scss */
 .grid-layout .post-content-container.no-padding {
   padding: 0px; }
 
-/* line 34, /Users/jeff/Sites/Sandbox/wodstar_wordpress/wp-content/themes/Avada-Child-Theme/scss/style.scss */
 .image.simple {
   max-height: 250px; }
-  /* line 37, /Users/jeff/Sites/Sandbox/wodstar_wordpress/wp-content/themes/Avada-Child-Theme/scss/style.scss */
   .image.simple .image-extras.simple {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
     opacity: 1;
     background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%);
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%); }
-    /* line 45, /Users/jeff/Sites/Sandbox/wodstar_wordpress/wp-content/themes/Avada-Child-Theme/scss/style.scss */
     .image.simple .image-extras.simple .image-extras-content h3 a {
       color: #ffffff;
       font-size: 2rem !important;
       line-height: 2.15rem; }
 
-/* line 56, /Users/jeff/Sites/Sandbox/wodstar_wordpress/wp-content/themes/Avada-Child-Theme/scss/style.scss */
 #wrapper .post-content h2, #wrapper .fusion-title h2, #wrapper #main .post-content .fusion-title h2, #wrapper .title h2, #wrapper #main .post-content .title h2, #wrapper #main .post h2, #wrapper .woocommerce .checkout h3, .cart-empty {
   line-height: 20px !important; }
-
-
-/*# sourceMappingURL=maps/style.css.map */
