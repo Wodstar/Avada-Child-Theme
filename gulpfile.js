@@ -10,7 +10,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('scss/*.scss', ['styles']);
+  gulp.watch('scss/**/*.scss', ['styles']);
 });
 
 gulp.task('default', ['watch'], function () {});

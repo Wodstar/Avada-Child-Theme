@@ -4,7 +4,7 @@ Description: Child theme for the Avada
 Github Theme URI: https://github.com/Wodstar/Avada-Child-Theme
 Author: Wodstar
 Template: Avada
-Version: v0.0.6
+Version: v0.0.7
 */
 body {
   font-smoothing: subpixel-antialiased; }
@@ -52,8 +52,8 @@ body {
   #main .sidebar {
     padding-top: 55px !important; } }
 
-.eg-search-wrapper {
+.ws-blog-grid .eg-search-wrapper {
   float: right; }
-  .eg-search-wrapper input.eg-search-input[type="text"], .eg-search-wrapper .eg-search-input {
+  .ws-blog-grid .eg-search-wrapper input.eg-search-input[type="text"], .ws-blog-grid .eg-search-wrapper .eg-search-input {
     display: inline-block;
     width: auto !important; }
