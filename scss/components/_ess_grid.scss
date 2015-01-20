@@ -1,4 +1,6 @@
 .ws-blog-grid {
+  padding-top: 0px;
+
   .eg-search-wrapper {
     float: right;
 
@@ -6,6 +8,7 @@
       display: inline-block;
       // This is a fix for the ess_grid search box.
       width: auto !important;
+      margin-right: 1rem;
     }
   }
 }
