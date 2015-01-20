@@ -1,0 +1,8 @@
+.eg-search-wrapper {
+  float: right;
+
+  input.eg-search-input[type="text"], .eg-search-input {
+    display: inline-block;
+    width: auto !important;
+  }
+}

@@ -99,7 +99,7 @@
       <?php $thumb_class = ' has-post-thumbnail'; ?>
       <?php endif; ?>   
       <div id="post-<?php the_ID(); ?>" <?php post_class('post ' . $post_class.getClassAlign($post_count) . $thumb_class . ' clearfix'); ?>>
-        <div class="post-wrapper">
+        <div class="post-wrapper movement">
           <?php if($smof_data['blog_archive_layout'] == 'Medium Alternate'): ?>
           <?php echo avada_post_date_and_format_box(); ?>
           <?php endif; ?>

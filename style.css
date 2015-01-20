@@ -1,10 +1,10 @@
 /*
 Theme Name: Wodstar
 Description: Child theme for the Avada
-Github Theme URI: https://github.com/Wodstar/Avada-ChildTheme.git
+Github Theme URI: https://github.com/Wodstar/Avada-Child-Theme
 Author: Wodstar
 Template: Avada
-Version: v0.0.4
+Version: v0.0.6
 */
 body {
   font-smoothing: subpixel-antialiased; }
@@ -41,3 +41,19 @@ body {
 
 #wrapper .post-content h2, #wrapper .fusion-title h2, #wrapper #main .post-content .fusion-title h2, #wrapper .title h2, #wrapper #main .post-content .title h2, #wrapper #main .post h2, #wrapper .woocommerce .checkout h3, .cart-empty {
   line-height: 20px !important; }
+
+.grid-layout .post .post-wrapper.movement, .grid-layout .post .post-wrapper.wod {
+  border: none;
+  border-color: transparent; }
+  .grid-layout .post .post-wrapper.movement .flexslider, .grid-layout .post .post-wrapper.wod .flexslider {
+    border: none; }
+
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  #main .sidebar {
+    padding-top: 55px !important; } }
+
+.eg-search-wrapper {
+  float: right; }
+  .eg-search-wrapper input.eg-search-input[type="text"], .eg-search-wrapper .eg-search-input {
+    display: inline-block;
+    width: auto !important; }
