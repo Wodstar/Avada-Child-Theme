@@ -1454,7 +1454,11 @@ $body_classes[] = 'mobile-menu-design-' . $smof_data['mobile_menu_design'];
   <?php endif; ?>
   <?php
   avada_header_template( 'Above' );
-  avada_current_page_title_bar( $c_pageID );
+  if( function_exists( 'wodstar_page_title_bar' ) ) {
+    wodstar_current_page_title_bar( $c_pageID );
+  } else {
+    avada_current_page_title_bar( $c_pageID );
+  }
   ?>
   <?php if(is_page_template('contact.php') && $smof_data['recaptcha_public'] && $smof_data['recaptcha_private']): ?>
   <script type="text/javascript">

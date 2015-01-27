@@ -115,6 +115,7 @@
     $category = $categories[0] -> cat_name;
     $is_movement = $category === "Movements";
     $is_wod = $category === "Wods";
+    $is_article = $category === "Articles";
     ?>
     <?php if( ( ! $smof_data['blog_pn_nav'] && get_post_meta($post->ID, 'pyre_post_pagination', true) != 'no' ) ||
           ( $smof_data['blog_pn_nav'] && get_post_meta($post->ID, 'pyre_post_pagination', true) == 'yes' ) ): ?>
