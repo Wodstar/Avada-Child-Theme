@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer');
+    coffee = require('gulp-coffee');
 
 gulp.task('styles', function() {
   return gulp.src('./scss/style.scss')
@@ -9,8 +10,15 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('./'))
 });
 
+gulp.task('coffee', function () {
+  gulp.src('./coffee/*.coffee')
+    .pipe(coffee({bare: true}))
+    .pipe(gulp.dest('./js/'))
+});
+
 gulp.task('watch', function () {
   gulp.watch('scss/**/*.scss', ['styles']);
+  gulp.watch('coffee/**/*.coffee', ['coffee']);
 });
 
 gulp.task('default', ['watch'], function () {});

@@ -4,13 +4,18 @@ Description: Child theme for the Avada
 Github Theme URI: https://github.com/Wodstar/Avada-Child-Theme
 Author: Wodstar
 Template: Avada
-Version: v0.1.0
+Version: v0.1.1
 */
 body {
   font-smoothing: subpixel-antialiased; }
 
 .menu-item, .entry-title, .fusion-title, .sidebar .widget h3, .sidebar .widget .heading h3 {
   text-transform: uppercase; }
+
+.page-title-container {
+  border-top: none;
+  min-height: 100% !important;
+  background-position: center top; }
 
 .fusion-blog-shortcode-1 .grid-layout .post:nth-child(-n+3), .category-movements:nth-child(-n+3), .category-wods:nth-child(-n+3), .category-articles:nth-child(-n+3) {
   padding-top: 0px !important; }
