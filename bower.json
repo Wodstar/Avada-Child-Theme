@@ -1,0 +1,23 @@
+{
+  "name": "Avada-Child-Theme",
+  "version": "0.1.1",
+  "homepage": "https://github.com/Wodstar/Avada-Child-Theme",
+  "authors": [
+    "Buttreygoodness <jeff@readypress.com>"
+  ],
+  "description": "Bower for the wodstar avada child theme",
+  "main": "js/main.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.15"
+  }
+}

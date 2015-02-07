@@ -1,3 +1,0 @@
-WodstarPageView = () ->
-  $ = jQuery
-  console.log $

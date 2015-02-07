@@ -1,21 +1,133 @@
+@charset "UTF-8";
 /*
 Theme Name: Wodstar
 Description: Child theme for the Avada
 Github Theme URI: https://github.com/Wodstar/Avada-Child-Theme
 Author: Wodstar
 Template: Avada
-Version: v0.1.1
+Version: v0.1.3
 */
-body {
+body, html {
   font-smoothing: subpixel-antialiased; }
 
 .menu-item, .entry-title, .fusion-title, .sidebar .widget h3, .sidebar .widget .heading h3 {
   text-transform: uppercase; }
 
-.page-title-container {
-  border-top: none;
-  min-height: 100% !important;
-  background-position: center top; }
+.header-wrapper {
+  z-index: 100; }
+
+body.single .page-title-container {
+  border-top: none !important;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+  height: auto;
+  display: none; }
+  body.single .page-title-container .page-title {
+    -webkit-transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 0.8);
+            transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 0.8); }
+    body.single .page-title-container .page-title .page-title-captions {
+      display: table-cell !important;
+      vertical-align: middle;
+      width: 45%; }
+  body.single .page-title-container:not(.notrans) {
+    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+            transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    -webkit-transition-duration: 0.8s;
+            transition-duration: 0.8s; }
+  body.single .page-title-container.modify {
+    -webkit-transform: translateY(-400px);
+        -ms-transform: translateY(-400px);
+            transform: translateY(-400px);
+    opacity: 0; }
+    body.single .page-title-container.modify .page-title {
+      height: 0 !important;
+      opacity: 0; }
+    body.single .page-title-container.modify:not(.notrans) button.trigger {
+      opacity: 0;
+      pointer-events: none;
+      -webkit-transition-delay: 0s;
+      transition-delay: 0s; }
+  body.single .page-title-container .entry-title {
+    color: #FFF;
+    font-weight: 700;
+    font-size: 4rem !important;
+    line-height: 4rem !important;
+    max-width: 80%;
+    margin: 0 auto !important; }
+body.single #main {
+  margin-top: 2rem;
+  padding: 0 2rem 3em 2rem;
+  -webkit-transform: translateY(400px);
+      -ms-transform: translateY(400px);
+          transform: translateY(400px);
+  opacity: 0; }
+  body.single #main:not(.notrans) {
+    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 0.8);
+            transition-timing-function: cubic-bezier(0.7, 0, 0.3, 0.8);
+    -webkit-transition-duration: 0.8s;
+            transition-duration: 0.8s; }
+  body.single #main.modify {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1; }
+
+/* Trigger Button */
+button.trigger {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  z-index: 5000;
+  display: block;
+  margin-left: -0.5em;
+  padding: 0;
+  width: 1em;
+  height: 1em;
+  border: none;
+  background: transparent;
+  color: transparent;
+  font-size: 2em;
+  cursor: pointer;
+  -webkit-transition: opacity 0.3s 0.5s;
+          transition: opacity 0.3s 0.5s; }
+  button.trigger::before {
+    position: absolute;
+    bottom: 100%;
+    left: -100%;
+    padding: 0.8em 0;
+    width: 300%;
+    color: #fff;
+    content: attr(data-info);
+    font-size: .5em;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    text-transform: uppercase; }
+  button.trigger:focus {
+    outline: none; }
+  button.trigger span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%; }
+    button.trigger span::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      content: "";
+      text-transform: none;
+      font-weight: normal;
+      font-style: normal;
+      font-variant: normal;
+      font-family: 'FontAwesome';
+      font-size: 3rem;
+      line-height: 1;
+      speak: none;
+      font-smoothing: antialiased; }
 
 .fusion-blog-shortcode-1 .grid-layout .post:nth-child(-n+3), .category-movements:nth-child(-n+3), .category-wods:nth-child(-n+3), .category-articles:nth-child(-n+3) {
   padding-top: 0px !important; }
