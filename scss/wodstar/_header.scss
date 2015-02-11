@@ -53,6 +53,11 @@ body.single{
       line-height: 4rem !important;
       max-width: 80%;
       margin: 0 auto !important;
+
+      @media only screen and (max-width: 800px) {
+        font-size: 3rem !important;
+        line-height: 3rem !important;
+      }
     }
   }
 
@@ -78,7 +83,7 @@ body.single{
 /* Trigger Button */
 button.trigger {
   position: fixed;
-  bottom: 40px;
+  bottom: 50px;
   left: 50%;
   z-index: 5000;
   display: block;
@@ -94,6 +99,8 @@ button.trigger {
   transition: opacity 0.3s 0.5s;
 
   &::before {
+    font-family: "Open Sans", "Helvetica-Neue", Helvetica, sans-serif;
+    font-weight: 200;
     position: absolute;
     bottom: 100%;
     left: -100%;

@@ -10,7 +10,7 @@ class WodstarPageModifier
     @page_title_div = @$('.page-title')
     @container = @$('#main')
     @header_wrapper = @$('.header-wrapper')
-    @background_image = @$('.post-slideshow>.slides>li>img')[0]
+    @background_image = @$('.post-slideshow>.slides>li>a>img')[0]
     @background_image_src = @$(@background_image).attr('src')
     @post_slideshow = @$('.post-slideshow')
     @trigger = undefined
@@ -37,8 +37,6 @@ class WodstarPageModifier
     @hideMainSlideshow()
     @insertButton()
 
-    console.log 'WodstarPageModifier initted'
-
   headerResize: () =>
     calculated_height = window.innerHeight - @header_wrapper.height()
     @page_title_div.css 'height', calculated_height + 'px'
@@ -51,7 +49,7 @@ class WodstarPageModifier
     @post_slideshow.css('display', 'none')
 
   insertButton: () ->
-    @page_title.append('<button class=\'trigger\' data-info="Click or Scroll Down"><span>Scroll Down</span></button>')
+    @page_title.append('<button class=\'trigger\' data-info="Click or Scroll"><span>Scroll Down</span></button>')
     @trigger = @$('.trigger')
     @trigger.click () =>
       @toggle 1
@@ -63,7 +61,6 @@ class WodstarPageModifier
       e.returnValue = false
 
   keydown: (e) =>
-    console.log 'keydown'
     for key in @keys
       if event.keyCode == key
         @preventDefault(e)

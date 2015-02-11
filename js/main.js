@@ -20,7 +20,7 @@ WodstarPageModifier = (function() {
     this.page_title_div = this.$('.page-title');
     this.container = this.$('#main');
     this.header_wrapper = this.$('.header-wrapper');
-    this.background_image = this.$('.post-slideshow>.slides>li>img')[0];
+    this.background_image = this.$('.post-slideshow>.slides>li>a>img')[0];
     this.background_image_src = this.$(this.background_image).attr('src');
     this.post_slideshow = this.$('.post-slideshow');
     this.trigger = void 0;
@@ -44,8 +44,7 @@ WodstarPageModifier = (function() {
     this.headerResize();
     this.swapHeaderImage();
     this.hideMainSlideshow();
-    this.insertButton();
-    return console.log('WodstarPageModifier initted');
+    return this.insertButton();
   };
 
   WodstarPageModifier.prototype.headerResize = function() {
@@ -64,7 +63,7 @@ WodstarPageModifier = (function() {
   };
 
   WodstarPageModifier.prototype.insertButton = function() {
-    this.page_title.append('<button class=\'trigger\' data-info="Click or Scroll Down"><span>Scroll Down</span></button>');
+    this.page_title.append('<button class=\'trigger\' data-info="Click or Scroll"><span>Scroll Down</span></button>');
     this.trigger = this.$('.trigger');
     return this.trigger.click((function(_this) {
       return function() {
@@ -83,7 +82,6 @@ WodstarPageModifier = (function() {
 
   WodstarPageModifier.prototype.keydown = function(e) {
     var key, _i, _len, _ref;
-    console.log('keydown');
     _ref = this.keys;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       key = _ref[_i];
