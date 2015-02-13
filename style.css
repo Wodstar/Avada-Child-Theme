@@ -5,7 +5,7 @@ Description: Child theme for the Avada
 Github Theme URI: https://github.com/Wodstar/Avada-Child-Theme
 Author: Wodstar
 Template: Avada
-Version: v0.1.4
+Version: v0.1.5
 */
 body, html {
   font-smoothing: subpixel-antialiased; }
@@ -167,8 +167,20 @@ body.category #main {
     opacity: 1;
     background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%);
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%); }
-    .post.type-post.grid-post.category-wods .image-extras .image-extras-content h3 a, .post.type-post.grid-post.category-wods .image-extras .image-extras-content h4 a, .post.type-post.grid-post.category-movements .image-extras .image-extras-content h3 a, .post.type-post.grid-post.category-movements .image-extras .image-extras-content h4 a, .post.type-post.blog-grid.category-wods .image-extras .image-extras-content h3 a, .post.type-post.blog-grid.category-wods .image-extras .image-extras-content h4 a, .post.type-post.blog-grid.category-movements .image-extras .image-extras-content h3 a, .post.type-post.blog-grid.category-movements .image-extras .image-extras-content h4 a {
-      color: #ffffff; }
     .post.type-post.grid-post.category-wods .image-extras .image-extras-content h3 a, .post.type-post.grid-post.category-movements .image-extras .image-extras-content h3 a, .post.type-post.blog-grid.category-wods .image-extras .image-extras-content h3 a, .post.type-post.blog-grid.category-movements .image-extras .image-extras-content h3 a {
+      color: #ffffff;
       font-size: 2rem !important;
       line-height: 2.15rem; }
+    .post.type-post.grid-post.category-wods .image-extras .image-extras-content h4, .post.type-post.grid-post.category-movements .image-extras .image-extras-content h4, .post.type-post.blog-grid.category-wods .image-extras .image-extras-content h4, .post.type-post.blog-grid.category-movements .image-extras .image-extras-content h4 {
+      display: none; }
+.post.type-post.grid-post.category-articles .post-content-container, .post.type-post.blog-grid.category-articles .post-content-container {
+  padding-top: 20px; }
+  .post.type-post.grid-post.category-articles .post-content-container .post-content .entry-title, .post.type-post.blog-grid.category-articles .post-content-container .post-content .entry-title {
+    line-height: 20px !important; }
+  .post.type-post.grid-post.category-articles .post-content-container .post-content .content-sep, .post.type-post.blog-grid.category-articles .post-content-container .post-content .content-sep {
+    border-top: 1px solid transparent; }
+
+@media only screen and (max-width: 640px) {
+  #wrapper .page-title-container .page-title h1 {
+    font-size: 20px !important;
+    line-height: 20px; } }
