@@ -8,3 +8,11 @@
 ### v0.1.6
 
 - Added changelog
+
+### v0.1.6r1
+
+- Minor revisions to mobile styling.
+
+### v0.1.7
+
+- Getting things normalized

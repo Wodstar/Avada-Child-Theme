@@ -5,13 +5,10 @@ Description: Child theme for the Avada
 Github Theme URI: https://github.com/Wodstar/Avada-Child-Theme
 Author: Wodstar
 Template: Avada
-Version: v0.1.6r1
+Version: v0.1.7
 */
 body, html {
   font-smoothing: subpixel-antialiased; }
-
-.menu-item, .entry-title, .fusion-title, .sidebar .widget h3, .sidebar .widget .heading h3 {
-  text-transform: uppercase; }
 
 .header-wrapper {
   z-index: 100; }
@@ -186,4 +183,7 @@ body.category #main {
     line-height: 2rem !important; } }
 
 .mobile-nav-holder .menu .mobile-nav-item a {
+  text-transform: uppercase; }
+
+.menu-item, .entry-title, .fusion-title, .sidebar .widget h3, .sidebar .widget .heading h3 {
   text-transform: uppercase; }
