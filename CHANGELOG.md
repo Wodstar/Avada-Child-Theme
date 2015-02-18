@@ -16,3 +16,7 @@
 ### v0.1.7
 
 - Getting things normalized
+
+### v0.1.8
+
+- Adding login button.
