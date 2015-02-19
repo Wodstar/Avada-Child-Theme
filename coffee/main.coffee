@@ -31,7 +31,6 @@ class WodstarPageModifier
     window.addEventListener 'scroll', @scrollPage
     window.addEventListener 'resize', @headerResize
 
-
     @headerResize()
     @swapHeaderImage()
     @hideMainSlideshow()
