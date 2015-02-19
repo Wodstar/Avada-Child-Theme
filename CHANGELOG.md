@@ -20,3 +20,8 @@
 ### v0.1.8
 
 - Adding login button.
+
+### v0.1.9
+
+- Changes to function.php include addition of login/out button in main menu.
+
