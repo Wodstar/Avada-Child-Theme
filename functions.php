@@ -50,7 +50,14 @@ function create_wodstar_menu() {
 }
 
 function wodstar_login_logout_link_li(){
-  return '<li class="menu-item menu-item-type-custom menu-item-object-custom">' . wp_loginout($_SERVER['REQUEST_URI'],false) . '</li>';
+  return '<li class="menu-item menu-item-type-custom menu-item-object-custom">' . wp_loginout("",false) . '</li>';
+}
+
+// custom logged out location...
+add_action('wp_logout','go_home');
+function go_home(){
+  wp_redirect( home_url() . "?logged-out=1"); // querystring for future 'flash' functionality...
+  exit();
 }
 
 
