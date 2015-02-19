@@ -49,8 +49,14 @@ function create_wodstar_menu() {
     ));
 }
 
-function wodstar_login_logout_link_li(){
-  return '<li class="menu-item menu-item-type-custom menu-item-object-custom">' . wp_loginout("",false) . '</li>';
+function wodstar_login_logout_link_li(){  
+  if (is_user_logged_in()) {
+    $link = '<a href="' . esc_url(wp_logout_url()) . '">Logout</a>';
+  }
+  else {
+    $link = '<a href="' . esc_url(wp_login_url()) . '">Login / Register</a>';
+  }
+  return '<li class="menu-item menu-item-type-custom menu-item-object-custom">' . $link . '</li>';
 }
 
 // custom logged out location...
