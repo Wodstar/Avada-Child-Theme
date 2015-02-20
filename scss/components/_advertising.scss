@@ -1,0 +1,9 @@
+.banner-ad-top {
+  .avada-row {
+    div {
+      @media only screen and (max-width: 728px) {
+        margin: 0px !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+div[class*=" homepage-section"] {
+  .avada-row .fusion-title {
+    margin: 10px 0;
+
+    @media only screen and (max-width: 800px) {
+      margin: 0px !important;
+    }
+
+    h2 {
+      font-size: 2rem !important;
+      line-height: 2rem !important;
+    }
+  }
+}
+
+.homepage-section-wods {
+  background-color: $wodstar-red !important;
+
+  .fusion-title h2{
+    color: #FFFFFF;
+  }
+}
+
+.homepage-section-movements {
+  background-color: $wodstar-silver !important;
+}
+
+.homepage-section-articles {
+  background-color: $wodstar-blue !important;
+
+  .avada-row {
+    .fusion-title h2{
+      color: #FFFFFF;
+    }
+
+    .fusion-blog-grid .fusion-posts-container .post .post-wrapper {
+      background-color: #FFFFFF;
+    }
+  }
+}
+
+body {
+  &.home {
+    #main {
+      padding-bottom: 0px;
+    }
+  }
+}
