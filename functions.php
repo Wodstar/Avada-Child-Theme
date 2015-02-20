@@ -66,5 +66,9 @@ function go_home(){
   exit();
 }
 
+function wodstar_s2member_pro_login_widget() {
+  echo s2member_pro_login_widget();
+}
+add_shortcode( 'wodstar_login', 'wodstar_s2member_pro_login_widget' );
 
 
