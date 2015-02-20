@@ -162,19 +162,29 @@ body.category #main {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
     opacity: 1;
-    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%);
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%); }
+    background-image: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%);
+    background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%); }
     .post.type-post.grid-post.category-wods .image-extras .image-extras-content h3 a, .post.type-post.grid-post.category-movements .image-extras .image-extras-content h3 a, .post.type-post.blog-grid.category-wods .image-extras .image-extras-content h3 a, .post.type-post.blog-grid.category-movements .image-extras .image-extras-content h3 a {
       color: #ffffff;
       font-size: 2rem !important;
       line-height: 2.15rem; }
     .post.type-post.grid-post.category-wods .image-extras .image-extras-content h4, .post.type-post.grid-post.category-movements .image-extras .image-extras-content h4, .post.type-post.blog-grid.category-wods .image-extras .image-extras-content h4, .post.type-post.blog-grid.category-movements .image-extras .image-extras-content h4 {
       display: none; }
+.post.type-post.grid-post.category-articles .image .image-extras, .post.type-post.blog-grid.category-articles .image .image-extras {
+  background-image: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%);
+  background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%); }
+  .post.type-post.grid-post.category-articles .image .image-extras .image-extras-content h3 a, .post.type-post.blog-grid.category-articles .image .image-extras .image-extras-content h3 a {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    line-height: 1.5rem; }
 .post.type-post.grid-post.category-articles .post-content-container, .post.type-post.blog-grid.category-articles .post-content-container {
   padding-top: 20px; }
-  .post.type-post.grid-post.category-articles .post-content-container .post-content .entry-title, .post.type-post.blog-grid.category-articles .post-content-container .post-content .entry-title {
-    line-height: 20px !important; }
-  .post.type-post.grid-post.category-articles .post-content-container .post-content .content-sep, .post.type-post.blog-grid.category-articles .post-content-container .post-content .content-sep {
+  .post.type-post.grid-post.category-articles .post-content-container .entry-title a, .post.type-post.blog-grid.category-articles .post-content-container .entry-title a {
+    font-size: 1.5rem !important;
+    line-height: 1.5rem !important; }
+  .post.type-post.grid-post.category-articles .post-content-container .content-sep, .post.type-post.blog-grid.category-articles .post-content-container .content-sep {
     border-top: 1px solid transparent; }
 
 @media only screen and (max-width: 640px) {
@@ -187,3 +197,34 @@ body.category #main {
 
 .menu-item, .entry-title, .fusion-title, .sidebar .widget h3, .sidebar .widget .heading h3 {
   text-transform: uppercase; }
+
+@media only screen and (max-width: 728px) {
+  .banner-ad-top .avada-row div {
+    margin: 0px !important; } }
+
+div[class*=" homepage-section"] .avada-row .fusion-title {
+  margin: 10px 0; }
+  @media only screen and (max-width: 800px) {
+    div[class*=" homepage-section"] .avada-row .fusion-title {
+      margin: 0px !important; } }
+  div[class*=" homepage-section"] .avada-row .fusion-title h2 {
+    font-size: 2rem !important;
+    line-height: 2rem !important; }
+
+.homepage-section-wods {
+  background-color: #B5191D !important; }
+  .homepage-section-wods .fusion-title h2 {
+    color: #FFFFFF; }
+
+.homepage-section-movements {
+  background-color: #ECECEE !important; }
+
+.homepage-section-articles {
+  background-color: #2E4359 !important; }
+  .homepage-section-articles .avada-row .fusion-title h2 {
+    color: #FFFFFF; }
+  .homepage-section-articles .avada-row .fusion-blog-grid .fusion-posts-container .post .post-wrapper {
+    background-color: #FFFFFF; }
+
+body.home #main {
+  padding-bottom: 0px; }

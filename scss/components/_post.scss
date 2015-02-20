@@ -19,7 +19,7 @@
     .image-extras {
       transform: translate3d(0, 0, 0);
       opacity: 1;
-      background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 25%,rgba(0,0,0,0.65) 99%,rgba(0,0,0,0.65) 100%);
+      background-image: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 25%,rgba(0,0,0,0.65) 99%,rgba(0,0,0,0.65) 100%);
 
       .image-extras-content {
         h3 {
@@ -37,16 +37,27 @@
   }
 
   &.category-articles {
+    .image .image-extras {
+      background-image: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 25%,rgba(0,0,0,0.65) 99%,rgba(0,0,0,0.65) 100%);
+
+      .image-extras-content h3 a{
+        color: #FFFFFF;
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+    }
+
     .post-content-container {
       padding-top: 20px;
 
-      .post-content {
-        .entry-title {
-          line-height: 20px !important;
-        }
-        .content-sep {
-          border-top: 1px solid transparent;
-        }
+      .entry-title a{
+        font-size: 1.5rem !important;
+        line-height: 1.5rem !important;
+      }
+      .content-sep {
+        border-top: 1px solid transparent;
       }
     }
   }
