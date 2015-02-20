@@ -25,3 +25,8 @@
 
 - Changes to function.php include addition of login/out button in main menu.
 
+### v0.2.0
+
+- Styling for home page and post components, advertising tweaked slightly.
+- Do not display admin bar for 'simple' users
+- Turned s2Member login widget into shortcode.
