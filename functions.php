@@ -71,4 +71,9 @@ function wodstar_s2member_pro_login_widget() {
 }
 add_shortcode( 'wodstar_login', 'wodstar_s2member_pro_login_widget' );
 
+// don't display admin bar for simple users...
+if ( ! current_user_can( 'manage_options' ) ) {
+    show_admin_bar( false );
+}
+
 
