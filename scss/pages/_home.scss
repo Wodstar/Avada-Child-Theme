@@ -13,6 +13,31 @@ div[class*=" homepage-section"] {
   }
 }
 
+.homepage-section-promo {
+  padding-bottom: 0px !important;
+
+  .avada-row {
+    .one_half {
+      margin-bottom: 0px;
+
+      &.promo-text-opacity-80 {
+        .fusion-column-wrapper {
+          background-color: rgba(255,255,255,0.8) !important;
+          padding-bottom: 0px !important;
+
+          a[class*=" promo-button"] {
+            margin: 20px 20px 20px 0;
+          }
+        }
+      }
+    }
+  }
+
+  .fusion-title h2{
+    color: #FFFFFF;
+  }
+}
+
 .homepage-section-wods {
   background-color: $wodstar-red !important;
 

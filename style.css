@@ -5,7 +5,7 @@ Description: Child theme for the Avada
 Github Theme URI: https://github.com/Wodstar/Avada-Child-Theme
 Author: Wodstar
 Template: Avada
-Version: 0.2.1
+Version: 0.2.2
 */
 body, html {
   font-smoothing: subpixel-antialiased; }
@@ -218,6 +218,18 @@ div[class*=" homepage-section"] .avada-row .fusion-title {
   div[class*=" homepage-section"] .avada-row .fusion-title h2 {
     font-size: 2rem !important;
     line-height: 2rem !important; }
+
+.homepage-section-promo {
+  padding-bottom: 0px !important; }
+  .homepage-section-promo .avada-row .one_half {
+    margin-bottom: 0px; }
+    .homepage-section-promo .avada-row .one_half.promo-text-opacity-80 .fusion-column-wrapper {
+      background-color: rgba(255, 255, 255, 0.8) !important;
+      padding-bottom: 0px !important; }
+      .homepage-section-promo .avada-row .one_half.promo-text-opacity-80 .fusion-column-wrapper a[class*=" promo-button"] {
+        margin: 20px 20px 20px 0; }
+  .homepage-section-promo .fusion-title h2 {
+    color: #FFFFFF; }
 
 .homepage-section-wods {
   background-color: #B5191D !important; }
