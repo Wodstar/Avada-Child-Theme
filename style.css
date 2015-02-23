@@ -5,7 +5,7 @@ Description: Child theme for the Avada
 Github Theme URI: https://github.com/Wodstar/Avada-Child-Theme
 Author: Wodstar
 Template: Avada
-Version: v0.2.0
+Version: v0.2.1
 */
 body, html {
   font-smoothing: subpixel-antialiased; }
@@ -51,6 +51,7 @@ body.single .page-title-container {
     font-weight: 700;
     font-size: 4rem !important;
     line-height: 4rem !important;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
     max-width: 80%;
     margin: 0 auto !important; }
     @media only screen and (max-width: 800px) {
@@ -148,6 +149,8 @@ body.category #main {
       width: auto !important;
       margin-right: 1rem; }
 
+.post.type-post.grid-post .post-wrapper .post-slideshow .slides li div.image, .post.type-post.blog-grid .post-wrapper .post-slideshow .slides li div.image {
+  max-height: 235px; }
 .post.type-post.grid-post.category-wods, .post.type-post.grid-post.category-movements, .post.type-post.blog-grid.category-wods, .post.type-post.blog-grid.category-movements {
   font-size: 150% !important;
   text-transform: uppercase;
@@ -192,6 +195,11 @@ body.category #main {
     font-size: 2rem !important;
     line-height: 2rem !important; } }
 
+.header-wide-image {
+  min-height: 350px; }
+  .header-wide-image .fusion-column-wrapper {
+    min-height: 350px; }
+
 .mobile-nav-holder .menu .mobile-nav-item a {
   text-transform: uppercase; }
 
@@ -228,3 +236,22 @@ div[class*=" homepage-section"] .avada-row .fusion-title {
 
 body.home #main {
   padding-bottom: 0px; }
+
+.promo-h2, .promo-h3 {
+  text-align: center;
+  text-transform: uppercase; }
+
+.promo-h2 {
+  font-size: 2rem !important;
+  line-height: 2rem !important; }
+
+.promo-h3 {
+  font-size: 1.5rem !important;
+  line-height: 1.5rem !important; }
+
+.promo-text p, .promo-text-white p {
+  font-size: 1.25rem;
+  line-height: 1.5rem; }
+
+.promo-text-white h2, .promo-text-white h3, .promo-text-white p {
+  color: #FFFFFF !important; }

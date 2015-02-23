@@ -1,4 +1,14 @@
 .post.type-post.grid-post, .post.type-post.blog-grid {
+  .post-wrapper {
+    .post-slideshow {
+      .slides {
+        li div.image {
+          max-height: 235px;
+        }
+      }
+    }
+  }
+
   &.category-wods, &.category-movements {
     font-size: 150% !important;
     text-transform: uppercase;
