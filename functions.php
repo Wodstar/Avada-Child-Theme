@@ -76,4 +76,11 @@ if ( ! current_user_can( 'manage_options' ) ) {
     show_admin_bar( false );
 }
 
+//[phpinfo]
+function phpinfo_shortcode( $atts ){
+  return phpinfo();
+}
+add_shortcode( 'phpinfo', 'phpinfo_shortcode' );
+
+
 
