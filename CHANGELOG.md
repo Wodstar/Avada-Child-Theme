@@ -30,3 +30,7 @@
 - Styling for home page and post components, advertising tweaked slightly.
 - Do not display admin bar for 'simple' users
 - Turned s2Member login widget into shortcode.
+
+### v0.2.4
+
+- working on login / registration stuff
