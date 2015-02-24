@@ -68,7 +68,8 @@ function go_home(){
 }
 
 function wodstar_s2member_pro_login_widget() {
-  echo s2member_pro_login_widget();
+  echo wp_login_form();
+  // echo s2member_pro_login_widget();
 }
 add_shortcode( 'wodstar_login', 'wodstar_s2member_pro_login_widget' );
 
