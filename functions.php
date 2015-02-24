@@ -54,7 +54,8 @@ function wodstar_login_logout_link_li(){
     $link = '<a href="' . esc_url(wp_logout_url()) . '">Logout</a>';
   }
   else {
-    $link = '<a href="' . esc_url(wp_login_url()) . '">Login / Register</a>';
+    // $link = '<a href="' . esc_url(wp_login_url()) . '">Login / Register</a>';
+    $link = '<a href="/login-register">Login / Register</a>';
   }
   return '<li class="menu-item menu-item-type-custom menu-item-object-custom">' . $link . '</li>';
 }
