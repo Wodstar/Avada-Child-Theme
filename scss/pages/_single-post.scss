@@ -1,0 +1,12 @@
+.single {
+  &.single-format-standard {
+    h2.entry-title {
+      font-size: 2rem !important;
+      line-height: 2rem !important;
+    }
+
+    h2, h3 {
+      text-transform: uppercase;
+    }
+  }
+}

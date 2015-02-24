@@ -210,6 +210,17 @@ body.category #main {
   .banner-ad-top .avada-row div {
     margin: 0px !important; } }
 
+.related-posts .fusion-title .title-sep-container {
+  display: none; }
+.related-posts #carousel .es-carousel .caroufredsel_wrapper ul li .image .image-extras {
+  background-image: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%);
+  background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.65) 99%, rgba(0, 0, 0, 0.65) 100%); }
+  .related-posts #carousel .es-carousel .caroufredsel_wrapper ul li .image .image-extras .image-extras-content h3 a {
+    text-transform: uppercase;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #FFFFFF; }
+
 div[class*=" homepage-section"] .avada-row .fusion-title {
   margin: 10px 0; }
   @media only screen and (max-width: 800px) {
@@ -267,3 +278,9 @@ body.home #main {
 
 .promo-text-white h2, .promo-text-white h3, .promo-text-white p {
   color: #FFFFFF !important; }
+
+.single.single-format-standard h2.entry-title {
+  font-size: 2rem !important;
+  line-height: 2rem !important; }
+.single.single-format-standard h2, .single.single-format-standard h3 {
+  text-transform: uppercase; }

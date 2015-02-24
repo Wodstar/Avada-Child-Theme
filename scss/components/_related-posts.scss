@@ -1,0 +1,26 @@
+.related-posts {
+  .fusion-title {
+    .title-sep-container {
+      display: none;
+    }
+  }
+
+  #carousel {
+    .es-carousel {
+      .caroufredsel_wrapper {
+        ul li .image .image-extras {
+          background-image: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 25%,rgba(0,0,0,0.65) 99%,rgba(0,0,0,0.65) 100%);
+
+          .image-extras-content {
+            h3 a {
+              text-transform: uppercase;
+              font-size: 1rem;
+              line-height: 1rem;
+              color: #FFFFFF;
+            }
+          }
+        }
+      }
+    }
+  }
+}
