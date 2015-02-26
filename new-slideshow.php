@@ -164,7 +164,6 @@
                       $full_image[0] = get_post_meta($post->ID, 'pyre_video_url', true);
                     }
                     ?>
-                    <a style="<?php echo $zoom_icon_css; ?>" class="icon gallery-icon" href="<?php echo $full_image[0]; ?>" rel="prettyPhoto[gallery<?php echo $post->ID; ?>]" title="<?php echo get_post_field('post_excerpt', get_post_thumbnail_id()); ?>"><?php if(get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true)): ?><img style="display:none;" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" /><?php endif; ?>Gallery</a>
                     <h3><a href="<?php echo $permalink; ?>"><?php the_title(); ?></a></h3>
                     <h4><?php echo get_the_term_list($post->ID, 'category', '', ', ', ''); ?></h4>
                   </div>
