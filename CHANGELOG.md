@@ -41,3 +41,7 @@
 - Button styling
 - Forcing grid layouts to display smaller images (new-slideshow.php)
 - Miscellaneous changes to the global stlying.
+
+### v0.2.6
+
+- Some styling for s2 forms.
