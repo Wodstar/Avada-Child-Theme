@@ -5,7 +5,7 @@ Description: Child theme for the Avada
 Github Theme URI: https://github.com/Wodstar/Avada-Child-Theme
 Author: Wodstar
 Template: Avada
-Version: 0.2.4
+Version: 0.2.5
 */
 body, html {
   font-smoothing: subpixel-antialiased; }
@@ -133,6 +133,11 @@ button.trigger {
       speak: none;
       font-smoothing: antialiased; }
 
+body *, body p {
+  font-weight: 300; }
+body h1, body h2, body h3, body h3 a {
+  font-weight: 700 !important; }
+
 body.category #main {
   padding-top: 20px; }
 
@@ -221,6 +226,9 @@ body.category #main {
     line-height: 1rem;
     color: #FFFFFF; }
 
+.fusion-button .fusion-button-text {
+  font-weight: 700; }
+
 div[class*=" homepage-section"] .avada-row .fusion-title {
   margin: 10px 0; }
   @media only screen and (max-width: 800px) {
@@ -234,13 +242,15 @@ div[class*=" homepage-section"] .avada-row .fusion-title {
   padding-bottom: 0px !important; }
   .homepage-section-promo .avada-row .one_half {
     margin-bottom: 0px; }
-    .homepage-section-promo .avada-row .one_half.promo-text-opacity-80 .fusion-column-wrapper {
-      background-color: rgba(255, 255, 255, 0.8) !important;
-      padding-bottom: 0px !important; }
-      .homepage-section-promo .avada-row .one_half.promo-text-opacity-80 .fusion-column-wrapper a[class*=" promo-button"] {
-        margin: 20px 20px 20px 0; }
+    .homepage-section-promo .avada-row .one_half.promo-text-opacity-80 {
+      margin-top: 1rem !important; }
+      .homepage-section-promo .avada-row .one_half.promo-text-opacity-80 .fusion-column-wrapper {
+        background-color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 1rem;
+        font-weight: 300; }
   .homepage-section-promo .fusion-title h2 {
-    color: #FFFFFF; }
+    color: #FFFFFF;
+    margin-bottom: 1rem; }
 
 .homepage-section-wods {
   background-color: #B5191D !important; }

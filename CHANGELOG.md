@@ -34,3 +34,10 @@
 ### v0.2.4
 
 - working on login / registration stuff
+
+### v0.2.5
+
+- Homepage styling (promo areas)
+- Button styling
+- Forcing grid layouts to display smaller images (new-slideshow.php)
+- Miscellaneous changes to the global stlying.

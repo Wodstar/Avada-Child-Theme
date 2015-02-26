@@ -123,7 +123,7 @@
       }
 
       if($layout == 'Grid' || $layout == 'Timeline') {
-        $size = 'full';
+        $size = 'medium';
       }
       ?>
 
@@ -140,20 +140,25 @@
       <div class="fusion-flexslider flexslider blog-medium-image floated-post-slideshow">
       <?php endif; ?>
         <ul class="slides">
-          
+          <?php if(get_post_meta(get_the_ID(), 'pyre_video', true)): ?>
+          <li>
+            <div class="full-video">
+              <?php echo get_post_meta(get_the_ID(), 'pyre_video', true); ?>
+            </div>
+          </li>
+          <?php endif; ?>
           <?php if(has_post_thumbnail()): ?>
           <?php $full_image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full'); ?>
           <?php $attachment_data = wp_get_attachment_metadata(get_post_thumbnail_id()); ?>
           <li>
-            <div class="image simple" aria-haspopup="true">
+            <div class="image" aria-haspopup="true">
                 <?php if($smof_data['image_rollover']): ?>
                 <?php the_post_thumbnail($size); ?>
                 <?php else: ?>
                 <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail($size); ?></a>
                 <?php endif; ?>
-                <div class="image-extras simple">
+                <div class="image-extras">
                   <div class="image-extras-content">
-                    <?php $full_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
                     <?php
                     if(get_post_meta($post->ID, 'pyre_video_url', true)) {
                       $full_image[0] = get_post_meta($post->ID, 'pyre_video_url', true);
@@ -161,6 +166,7 @@
                     ?>
                     <a style="<?php echo $zoom_icon_css; ?>" class="icon gallery-icon" href="<?php echo $full_image[0]; ?>" rel="prettyPhoto[gallery<?php echo $post->ID; ?>]" title="<?php echo get_post_field('post_excerpt', get_post_thumbnail_id()); ?>"><?php if(get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true)): ?><img style="display:none;" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" /><?php endif; ?>Gallery</a>
                     <h3><a href="<?php echo $permalink; ?>"><?php the_title(); ?></a></h3>
+                    <h4><?php echo get_the_term_list($post->ID, 'category', '', ', ', ''); ?></h4>
                   </div>
                 </div>
             </div>

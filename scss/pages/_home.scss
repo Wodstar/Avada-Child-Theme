@@ -21,13 +21,12 @@ div[class*=" homepage-section"] {
       margin-bottom: 0px;
 
       &.promo-text-opacity-80 {
+        margin-top: 1rem !important;
+        
         .fusion-column-wrapper {
           background-color: rgba(255,255,255,0.8) !important;
-          padding-bottom: 0px !important;
-
-          a[class*=" promo-button"] {
-            margin: 20px 20px 20px 0;
-          }
+          font-size: 1rem;
+          font-weight: 300;
         }
       }
     }
@@ -35,6 +34,7 @@ div[class*=" homepage-section"] {
 
   .fusion-title h2{
     color: #FFFFFF;
+    margin-bottom: 1rem;
   }
 }
 
