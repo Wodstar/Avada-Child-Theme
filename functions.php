@@ -50,18 +50,27 @@ function create_wodstar_menu() {
 }
 
 function wodstar_login_logout_link_li(){  
+  global $current_user;
   if (is_user_logged_in()) {
-    $link = '<a href="' . esc_url(wp_logout_url()) . '">Logout</a>';
+    get_currentuserinfo();
+    $wrapper_start = '<li class="menu-item"><a href="#">' . $current_user->user_login . '</a><ul class="sub-menu">';
+    $wrapper_end = '</ul></li>';
+    $link_logout = '<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="' . esc_url(wp_logout_url()) . '">Logout</a></li>';
+    $link_profile = '<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/member-profile/">Profile</a></li>';
+    return $wrapper_start . $link_logout . $link_profile . $wrapper_end;
+
   }
   else {
     // $link = '<a href="' . esc_url(wp_login_url()) . '">Login / Register</a>';
     $link = '<a href="/login-register">Login / Register</a>';
+    return '<li class="menu-item menu-item-type-custom menu-item-object-custom">' . $link . '</li>';
   }
-  return '<li class="menu-item menu-item-type-custom menu-item-object-custom">' . $link . '</li>';
+
 }
 
 // custom logged out location...
 add_action('wp_logout','go_home');
+
 function go_home(){
   wp_redirect( home_url() . "?logged-out=1"); // querystring for future 'flash' functionality...
   exit();
