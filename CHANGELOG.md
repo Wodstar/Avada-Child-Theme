@@ -45,3 +45,8 @@
 ### v0.2.6
 
 - Some styling for s2 forms.
+
+### v0.2.7
+
+- Additional functionality to login/register widget.
+- Additional styling for the s2 forms.
