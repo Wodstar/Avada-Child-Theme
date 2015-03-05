@@ -11,17 +11,6 @@ function avada_child_scripts() {
 }
 add_action('wp_enqueue_scripts', 'avada_child_scripts');
 
-
-function head_hook() {
-  echo "<div class=\"modal fade\" id=\"wodstarModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">".
-  "<div class=\"modal-dialog\">".
-  "  <div class=\"modal-content\"></div>".
-  "</div>".
-  "</div>";
-}
-
-add_action('wp_head', 'head_hook');
-
 // this is wrapped in after_setup_theme because it has to happen later than when the functions.php file runs...
 add_action('after_setup_theme', 'eff_with_avada_menu');
 function eff_with_avada_menu() {
@@ -86,12 +75,3 @@ add_shortcode( 'wodstar_login', 'wodstar_s2member_pro_login_widget' );
 if ( ! current_user_can( 'manage_options' ) ) {
     show_admin_bar( false );
 }
-
-//[phpinfo]
-function phpinfo_shortcode( $atts ){
-  return phpinfo();
-}
-add_shortcode( 'phpinfo', 'phpinfo_shortcode' );
-
-
-
