@@ -50,3 +50,9 @@
 
 - Additional functionality to login/register widget.
 - Additional styling for the s2 forms.
+
+### v0.2.8
+
+- Additional styling for s2 forms within posts (member pro registration).
+- TODO: Markup within s2 forms is a travesty... They need to be reworked.
+

@@ -9,7 +9,10 @@
   }
 }
 
-#ws-plugin--s2member-profile, .s2member-pro-paypal-form, .ws-plugin--s2member-pro-login-widget-form,  {
+#ws-plugin--s2member-profile, 
+.s2member-pro-paypal-form, 
+.ws-plugin--s2member-pro-login-widget-form, 
+.s2member-pro-paypal-checkout-form-section {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
   
   label {
@@ -19,10 +22,14 @@
     }
   }
 
-  input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
+  input[type="text"], 
+  input[type="email"], 
+  input[type="password"], 
+  input[type="submit"],
+  .s2member-pro-paypal-checkout-first-name {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 1rem;
-    padding: 8px 15px;
+    padding: 8px 15px !important;
   }
 
   input[type="submit"] {
@@ -35,7 +42,23 @@
   }
 }
 
-.s2member-pro-paypal-form-description-div, .s2member-pro-paypal-update-form-submit-div, .s2member-pro-paypal-update-form-billing-method-section-title, .s2member-pro-paypal-update-form-submission-section-title {
+.s2member-pro-paypal-checkout-form-first-name-label,
+.s2member-pro-paypal-checkout-form-last-name-label,
+.s2member-pro-paypal-checkout-form-email-label,
+.s2member-pro-paypal-checkout-form-username-label {
+  span {
+    font-family: 'Montserrat' !important;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.s2member-pro-paypal-form-description-div, 
+.s2member-pro-paypal-update-form-submit-div, 
+.s2member-pro-paypal-update-form-billing-method-section-title, 
+.s2member-pro-paypal-update-form-submission-section-title,
+.s2member-pro-paypal-form-registration-section-title,
+.s2member-pro-paypal-form-section-title {
   font-family: 'Montserrat' !important;
   text-transform: uppercase;
   font-weight: bold;
@@ -51,12 +74,12 @@
   width: 100%;
   float: none;
 
-  .s2member-pro-paypal-submit, .s2member-pro-paypal-registration-submit {
+  .s2member-pro-paypal-submit:not(input[type="image"]), .s2member-pro-paypal-registration-submit {
     font-family: 'Montserrat' !important;
     text-transform: uppercase;
     font-size: 16px !important;
     line-height: 48px;
-    padding: none;
+    padding: 0px;
     width: 100%;
     border: none;
     background-color: $wodstar-blue;

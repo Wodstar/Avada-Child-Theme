@@ -5,7 +5,7 @@ Description: Child theme for the Avada
 Github Theme URI: https://github.com/Wodstar/Avada-Child-Theme
 Author: Wodstar
 Template: Avada
-Version: 0.2.7
+Version: 0.2.8
 */
 body, html {
   font-smoothing: subpixel-antialiased; }
@@ -312,16 +312,16 @@ body.home #main {
   font-weight: bold;
   line-height: 1.5rem !important; }
 
-#ws-plugin--s2member-profile, .s2member-pro-paypal-form, .ws-plugin--s2member-pro-login-widget-form {
+#ws-plugin--s2member-profile, .s2member-pro-paypal-form, .ws-plugin--s2member-pro-login-widget-form, .s2member-pro-paypal-checkout-form-section {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif; }
-  #ws-plugin--s2member-profile label strong, .s2member-pro-paypal-form label strong, .ws-plugin--s2member-pro-login-widget-form label strong {
+  #ws-plugin--s2member-profile label strong, .s2member-pro-paypal-form label strong, .ws-plugin--s2member-pro-login-widget-form label strong, .s2member-pro-paypal-checkout-form-section label strong {
     font-family: 'Montserrat';
     text-transform: uppercase; }
-  #ws-plugin--s2member-profile input[type="text"], #ws-plugin--s2member-profile input[type="email"], #ws-plugin--s2member-profile input[type="password"], #ws-plugin--s2member-profile input[type="submit"], .s2member-pro-paypal-form input[type="text"], .s2member-pro-paypal-form input[type="email"], .s2member-pro-paypal-form input[type="password"], .s2member-pro-paypal-form input[type="submit"], .ws-plugin--s2member-pro-login-widget-form input[type="text"], .ws-plugin--s2member-pro-login-widget-form input[type="email"], .ws-plugin--s2member-pro-login-widget-form input[type="password"], .ws-plugin--s2member-pro-login-widget-form input[type="submit"] {
+  #ws-plugin--s2member-profile input[type="text"], #ws-plugin--s2member-profile input[type="email"], #ws-plugin--s2member-profile input[type="password"], #ws-plugin--s2member-profile input[type="submit"], #ws-plugin--s2member-profile .s2member-pro-paypal-checkout-first-name, .s2member-pro-paypal-form input[type="text"], .s2member-pro-paypal-form input[type="email"], .s2member-pro-paypal-form input[type="password"], .s2member-pro-paypal-form input[type="submit"], .s2member-pro-paypal-form .s2member-pro-paypal-checkout-first-name, .ws-plugin--s2member-pro-login-widget-form input[type="text"], .ws-plugin--s2member-pro-login-widget-form input[type="email"], .ws-plugin--s2member-pro-login-widget-form input[type="password"], .ws-plugin--s2member-pro-login-widget-form input[type="submit"], .ws-plugin--s2member-pro-login-widget-form .s2member-pro-paypal-checkout-first-name, .s2member-pro-paypal-checkout-form-section input[type="text"], .s2member-pro-paypal-checkout-form-section input[type="email"], .s2member-pro-paypal-checkout-form-section input[type="password"], .s2member-pro-paypal-checkout-form-section input[type="submit"], .s2member-pro-paypal-checkout-form-section .s2member-pro-paypal-checkout-first-name {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 1rem;
-    padding: 8px 15px; }
-  #ws-plugin--s2member-profile input[type="submit"], .s2member-pro-paypal-form input[type="submit"], .ws-plugin--s2member-pro-login-widget-form input[type="submit"] {
+    padding: 8px 15px !important; }
+  #ws-plugin--s2member-profile input[type="submit"], .s2member-pro-paypal-form input[type="submit"], .ws-plugin--s2member-pro-login-widget-form input[type="submit"], .s2member-pro-paypal-checkout-form-section input[type="submit"] {
     text-transform: uppercase;
     font-family: 'Montserrat';
     color: #ffffff;
@@ -329,7 +329,12 @@ body.home #main {
     background-color: #2E4359;
     line-height: 3rem; }
 
-.s2member-pro-paypal-form-description-div, .s2member-pro-paypal-update-form-submit-div, .s2member-pro-paypal-update-form-billing-method-section-title, .s2member-pro-paypal-update-form-submission-section-title {
+.s2member-pro-paypal-checkout-form-first-name-label span, .s2member-pro-paypal-checkout-form-last-name-label span, .s2member-pro-paypal-checkout-form-email-label span, .s2member-pro-paypal-checkout-form-username-label span {
+  font-family: 'Montserrat' !important;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.s2member-pro-paypal-form-description-div, .s2member-pro-paypal-update-form-submit-div, .s2member-pro-paypal-update-form-billing-method-section-title, .s2member-pro-paypal-update-form-submission-section-title, .s2member-pro-paypal-form-registration-section-title, .s2member-pro-paypal-form-section-title {
   font-family: 'Montserrat' !important;
   text-transform: uppercase;
   font-weight: bold;
@@ -342,12 +347,12 @@ body.home #main {
 .s2member-pro-paypal-form-div, .s2member-pro-paypal-update-form-submit-div {
   width: 100%;
   float: none; }
-  .s2member-pro-paypal-form-div .s2member-pro-paypal-submit, .s2member-pro-paypal-form-div .s2member-pro-paypal-registration-submit, .s2member-pro-paypal-update-form-submit-div .s2member-pro-paypal-submit, .s2member-pro-paypal-update-form-submit-div .s2member-pro-paypal-registration-submit {
+  .s2member-pro-paypal-form-div .s2member-pro-paypal-submit:not(input[type="image"]), .s2member-pro-paypal-form-div .s2member-pro-paypal-registration-submit, .s2member-pro-paypal-update-form-submit-div .s2member-pro-paypal-submit:not(input[type="image"]), .s2member-pro-paypal-update-form-submit-div .s2member-pro-paypal-registration-submit {
     font-family: 'Montserrat' !important;
     text-transform: uppercase;
     font-size: 16px !important;
     line-height: 48px;
-    padding: none;
+    padding: 0px;
     width: 100%;
     border: none;
     background-color: #2E4359;
