@@ -7,10 +7,6 @@ Template: Avada
 Version: 0.2.8
 */
 
-body, html {
-  font-smoothing: subpixel-antialiased;
-}
-
 @import "./wodstar/index";
 @import "./components/index";
 @import "./pages/index";

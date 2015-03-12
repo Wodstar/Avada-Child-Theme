@@ -69,9 +69,66 @@ function wodstar_s2member_pro_login_widget() {
   echo wp_login_form();
   // echo s2member_pro_login_widget();
 }
+
 add_shortcode( 'wodstar_login', 'wodstar_s2member_pro_login_widget' );
 
 // don't display admin bar for simple users...
 if ( ! current_user_can( 'manage_options' ) ) {
     show_admin_bar( false );
 }
+
+function wodstar_get_category_tags($args) {
+  global $wpdb;
+  $tags = $wpdb->get_results
+  ("
+    SELECT DISTINCT terms2.term_id as tag_id, terms2.name as tag_name, null as tag_link
+    FROM
+      wp_posts as p1
+      LEFT JOIN wp_term_relationships as r1 ON p1.ID = r1.object_ID
+      LEFT JOIN wp_term_taxonomy as t1 ON r1.term_taxonomy_id = t1.term_taxonomy_id
+      LEFT JOIN wp_terms as terms1 ON t1.term_id = terms1.term_id,
+
+      wp_posts as p2
+      LEFT JOIN wp_term_relationships as r2 ON p2.ID = r2.object_ID
+      LEFT JOIN wp_term_taxonomy as t2 ON r2.term_taxonomy_id = t2.term_taxonomy_id
+      LEFT JOIN wp_terms as terms2 ON t2.term_id = terms2.term_id
+    WHERE
+      t1.taxonomy = 'category' AND p1.post_status = 'publish' AND terms1.term_id IN (". $args .") AND
+      t2.taxonomy = 'post_tag' AND p2.post_status = 'publish'
+      AND p1.ID = p2.ID
+    ORDER by tag_name
+  ");
+  $count = 0;
+  foreach ($tags as $tag) {
+    $tags[$count]->tag_link = get_tag_link($tag->tag_id);
+    $count++;
+  }
+  return $tags;
+}
+
+function wodstar_search_div($title) {
+  if ( is_category() ) {
+    $category = get_the_category();
+    $ID = $category[0]->cat_ID;
+    $tags = wodstar_get_category_tags($ID);
+    $tags_select .= "<select class='form-control'>";
+    foreach ($tags as $tag) {
+      $tag_name = $tag->tag_name;
+      $tags_select .= "<option value='" . $tag_name . "'>" . $tag_name . "</option>";
+    }
+    $tags_select .= "</select>";
+  }
+  ?>
+  <div class="row wodstar-search-row">
+    <div class="container">
+      <div class="wodstar-search-div col-sm-3">
+        <p>Filter <?php echo $title ?></p>
+      </div>
+      <div class="wodstar-search-div col-sm-9">
+        <p><?php echo $tags_select ?></p>
+      </div>
+    </div>
+  </div>
+  <?php
+}
+
