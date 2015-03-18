@@ -6,3 +6,16 @@
 @import "../../assets/vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/clearfix";
 @import "../../assets/vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
 @import "../../assets/vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/forms";
+
+input[type="submit"],
+input[type="text"],
+input[type="password"],
+input[type="file"],
+textarea {
+  -webkit-appearance: inherit;
+  -webkit-border-radius: 4px;
+}
+
+input[type="text"] {
+  margin-right: 0;
+}

@@ -1,4 +1,4 @@
-class WodstarPageModifier
+class WodstarPageSingle
   constructor: (jQuery) ->
     @$ = jQuery
     @docElem = window.document.documentElement
@@ -125,5 +125,5 @@ class WodstarPageModifier
         @enableScroll()
     , @animation_duration
 
-wodstar_pm = new WodstarPageModifier(jQuery)
+wodstar_pm = new WodstarPageSingle(jQuery)
 wodstar_pm.init()

@@ -1075,7 +1075,7 @@ if( ! function_exists( 'avada_current_page_title_bar' ) ) {
 
 				if( $smof_data['page_title_bar'] ) {
 					avada_page_title_bar( $title, $subtitle, $secondary_content );
-					wodstar_search_div( $title );
+					wodstar_search_row( $title );
 				}
 			}
 		}

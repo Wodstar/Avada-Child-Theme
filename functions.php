@@ -1,18 +1,24 @@
 <?php
+/**
+ * Enques the scripts appropriately for different scenarios.
+ * @return null
+ */
 function avada_child_scripts() {
 	if ( ! is_admin() && ! in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) ) ) {
 		$theme_info = wp_get_theme();
 		wp_enqueue_style( 'avada-child-stylesheet', get_template_directory_uri() . '/style.css', array(), $theme_info->get( 'Version' ) );
     if ( is_single() ) {
-      wp_enqueue_script( 'wodstar-child-script', get_stylesheet_directory_uri() . '/js/main.js', array(), '0.1.0', 1 );
+      wp_enqueue_script( 'wodstar-child-script', get_stylesheet_directory_uri() . '/js/page-single.js', array(), '0.1.0', 1 );
     }
-    wp_enqueue_script( 'wodstar-child-script', get_stylesheet_directory_uri() . '/js/wodstar.js', array(), '0.1.0', 1 );
 	}
 }
+
 add_action('wp_enqueue_scripts', 'avada_child_scripts');
 
-// this is wrapped in after_setup_theme because it has to happen later than when the functions.php file runs...
-add_action('after_setup_theme', 'eff_with_avada_menu');
+/**
+ * Overrides default 'wp_head' behavior in the Avada theme
+ * @return null 
+ */
 function eff_with_avada_menu() {
   remove_action( 'wp_head', 'create_avada_menu' );
   add_action('wp_head', 'create_wodstar_menu');
@@ -23,23 +29,33 @@ function eff_with_avada_menu() {
 	}
 }
 
+// this is wrapped in after_setup_theme because it has to happen later than when the functions.php file runs...
+add_action('after_setup_theme', 'eff_with_avada_menu');
+
+/**
+ * Inserts a DOM element into the tail end of the navigation menu.
+ * @return null 
+ */
 function create_wodstar_menu() {
   global $main_menu;
   $main_menu = wp_nav_menu(array(
-      'theme_location'  => 'main_navigation',
-      'depth'        => 5,
-      'container'     => false,
-      'items_wrap'     => '%3$s' . wodstar_login_logout_link_li(),
-      'menu_class'    => 'nav fusion-navbar-nav',
-      'fallback_cb'     => 'default_menu_fallback',
-      // 'fallback_cb'     => 'FusionCoreFrontendWalker::fallback',
-      // 'walker'      => new FusionCoreFrontendWalker(),
-      'echo'         => false
-    ));
+    'theme_location'  => 'main_navigation',
+    'depth'        => 5,
+    'container'     => false,
+    'items_wrap'     => '%3$s' . wodstar_login_logout_link_li(),
+    'menu_class'    => 'nav fusion-navbar-nav',
+    'fallback_cb'     => 'default_menu_fallback',
+    'echo'         => false
+  ));
 }
 
+/**
+ * Provides the DOM element to be inserted by create_wodstar_menu
+ * @return String A li element appropriate for insertion into the navigation menu.
+ */
 function wodstar_login_logout_link_li(){  
   global $current_user;
+
   if (is_user_logged_in()) {
     get_currentuserinfo();
     $wrapper_start = '<li class="menu-item"><a href="#">' . $current_user->user_login . '</a><ul class="sub-menu">';
@@ -47,36 +63,47 @@ function wodstar_login_logout_link_li(){
     $link_logout = '<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="' . esc_url(wp_logout_url()) . '">Logout</a></li>';
     $link_profile = '<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/member-profile/">Profile</a></li>';
     return $wrapper_start . $link_logout . $link_profile . $wrapper_end;
-
   }
   else {
-    // $link = '<a href="' . esc_url(wp_login_url()) . '">Login / Register</a>';
     $link = '<a href="/login-register">Login / Register</a>';
     return '<li class="menu-item menu-item-type-custom menu-item-object-custom">' . $link . '</li>';
   }
 
 }
 
-// custom logged out location...
-add_action('wp_logout','go_home');
-
+/**
+ * Custom logged out location
+ * @return null
+ */
 function go_home(){
   wp_redirect( home_url() . "?logged-out=1"); // querystring for future 'flash' functionality...
   exit();
 }
 
+add_action('wp_logout','go_home');
+
+/**
+ * Provides a login form for 'wodstar_login' shortcode
+ * @return [type] [description]
+ */
 function wodstar_s2member_pro_login_widget() {
   echo wp_login_form();
-  // echo s2member_pro_login_widget();
 }
 
 add_shortcode( 'wodstar_login', 'wodstar_s2member_pro_login_widget' );
 
-// don't display admin bar for simple users...
+/**
+ * don't display admin bar for simple users...
+ */
 if ( ! current_user_can( 'manage_options' ) ) {
     show_admin_bar( false );
 }
 
+/**
+ * Direct SQL Query looking up all posts in a given category, saving time in the loop.
+ * @param  Array $args An array of category IDs to be looked up
+ * @return Array       Tags related to all the posts in the queried category
+ */
 function wodstar_get_category_tags($args) {
   global $wpdb;
   $tags = $wpdb->get_results
@@ -106,29 +133,47 @@ function wodstar_get_category_tags($args) {
   return $tags;
 }
 
-function wodstar_search_div($title) {
+/**
+ * Executed after the main page header is rendered on all pages. See the hook in framework/custom_functions.php @line 1078
+ * @param  String $title The title of the page (category in this case)
+ * @return null          This function echos a compnent to the DOM
+ */
+function wodstar_search_row($title) {
   if ( is_category() ) {
     $category = get_the_category();
     $ID = $category[0]->cat_ID;
     $tags = wodstar_get_category_tags($ID);
-    $tags_select .= "<select class='form-control'>";
+    $tags_select .= "<select class='form-control' id='wodstar-filter-input'>";
+    $tags_select .= "<option value=''>Select a filter...</option>";
     foreach ($tags as $tag) {
       $tag_name = $tag->tag_name;
-      $tags_select .= "<option value='" . $tag_name . "'>" . $tag_name . "</option>";
+      $tag_slug = $tag->tag_link;
+      $tags_select .= "<option value='" . $tag_slug . "'>" . $tag_name . "</option>";
     }
     $tags_select .= "</select>";
-  }
-  ?>
-  <div class="row wodstar-search-row">
-    <div class="container">
-      <div class="wodstar-search-div col-sm-3">
-        <p>Filter <?php echo $title ?></p>
-      </div>
-      <div class="wodstar-search-div col-sm-9">
-        <p><?php echo $tags_select ?></p>
+    ?>
+    <div class="row wodstar-search-row">
+      <div class="container">
+        <div class="col-sm-12">
+          <form action="#" class="form-inline pull-left">
+            <div class="form-group">
+              <!-- <label for="wodstar-filter-input">Filter <?php echo $title ?></label> -->
+              <label for="wodstar-filter-input"></label>
+              <?php echo $tags_select ?>
+            </div>
+          </form>
+          <form class="form-inline pull-right">
+            <div class="form-group">
+              <!-- <label for="wodstar-search-input">Search <?php echo $title ?></label> -->
+              <label for="wodstar-search-input"></label>
+              <input type="text" class="form-control" placeholder="Search by keyword..." id="wodstar-search-input">
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-  <?php
+    <?php
+    wp_enqueue_script( 'wodstar-child-script', get_stylesheet_directory_uri() . '/js/search-row.js', array(), '0.1.0', 1 );
+  }
 }
 

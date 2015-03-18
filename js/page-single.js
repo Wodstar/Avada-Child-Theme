@@ -1,8 +1,8 @@
-var WodstarPageModifier, wodstar_pm,
+var WodstarPageSingle, wodstar_pm,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-WodstarPageModifier = (function() {
-  function WodstarPageModifier(jQuery) {
+WodstarPageSingle = (function() {
+  function WodstarPageSingle(jQuery) {
     this.toggle = __bind(this.toggle, this);
     this.scrollPage = __bind(this.scrollPage, this);
     this.wheel = __bind(this.wheel, this);
@@ -29,7 +29,7 @@ WodstarPageModifier = (function() {
     this.animation_duration = 1200;
   }
 
-  WodstarPageModifier.prototype.init = function() {
+  WodstarPageSingle.prototype.init = function() {
     this.pageScroll = this.scrollY();
     this.noscroll = this.pageScroll === 0;
     this.disableScroll();
@@ -47,22 +47,22 @@ WodstarPageModifier = (function() {
     return this.insertButton();
   };
 
-  WodstarPageModifier.prototype.headerResize = function() {
+  WodstarPageSingle.prototype.headerResize = function() {
     var calculated_height;
     calculated_height = window.innerHeight - this.header_wrapper.height();
     this.page_title_div.css('height', calculated_height + 'px');
     return this.page_title.show();
   };
 
-  WodstarPageModifier.prototype.swapHeaderImage = function() {
+  WodstarPageSingle.prototype.swapHeaderImage = function() {
     return this.page_title.css('background-image', 'url(' + this.background_image_src + ')');
   };
 
-  WodstarPageModifier.prototype.hideMainSlideshow = function() {
+  WodstarPageSingle.prototype.hideMainSlideshow = function() {
     return this.post_slideshow.css('display', 'none');
   };
 
-  WodstarPageModifier.prototype.insertButton = function() {
+  WodstarPageSingle.prototype.insertButton = function() {
     this.page_title.append('<button class=\'trigger\' data-info="Click or Scroll"><span>Scroll Down</span></button>');
     this.trigger = this.$('.trigger');
     return this.trigger.click((function(_this) {
@@ -72,7 +72,7 @@ WodstarPageModifier = (function() {
     })(this));
   };
 
-  WodstarPageModifier.prototype.preventDefault = function(e) {
+  WodstarPageSingle.prototype.preventDefault = function(e) {
     e = e || window.event;
     if (e.preventDefault) {
       e.preventDefault();
@@ -80,7 +80,7 @@ WodstarPageModifier = (function() {
     }
   };
 
-  WodstarPageModifier.prototype.keydown = function(e) {
+  WodstarPageSingle.prototype.keydown = function(e) {
     var key, _i, _len, _ref;
     _ref = this.keys;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -92,27 +92,27 @@ WodstarPageModifier = (function() {
     }
   };
 
-  WodstarPageModifier.prototype.touchmove = function(e) {
+  WodstarPageSingle.prototype.touchmove = function(e) {
     return this.preventDefault(e);
   };
 
-  WodstarPageModifier.prototype.wheel = function(e) {};
+  WodstarPageSingle.prototype.wheel = function(e) {};
 
-  WodstarPageModifier.prototype.disableScroll = function() {
+  WodstarPageSingle.prototype.disableScroll = function() {
     window.onmousewheel = document.onmousewheel = this.wheel;
     document.onkeydown = this.keydown;
     return document.body.ontouchmove = this.touchmove;
   };
 
-  WodstarPageModifier.prototype.enableScroll = function() {
+  WodstarPageSingle.prototype.enableScroll = function() {
     return window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
   };
 
-  WodstarPageModifier.prototype.scrollY = function() {
+  WodstarPageSingle.prototype.scrollY = function() {
     return window.pageYOffset || this.docElem.scrollTop;
   };
 
-  WodstarPageModifier.prototype.scrollPage = function() {
+  WodstarPageSingle.prototype.scrollPage = function() {
     this.scrollVal = this.scrollY();
     if (this.noscroll) {
       if (this.scrollVal < 0) {
@@ -138,7 +138,7 @@ WodstarPageModifier = (function() {
     }
   };
 
-  WodstarPageModifier.prototype.toggle = function(reveal) {
+  WodstarPageSingle.prototype.toggle = function(reveal) {
     this.isAnimating = true;
     if (reveal) {
       this.container.addClass('modify');
@@ -161,10 +161,10 @@ WodstarPageModifier = (function() {
     })(this), this.animation_duration);
   };
 
-  return WodstarPageModifier;
+  return WodstarPageSingle;
 
 })();
 
-wodstar_pm = new WodstarPageModifier(jQuery);
+wodstar_pm = new WodstarPageSingle(jQuery);
 
 wodstar_pm.init();
