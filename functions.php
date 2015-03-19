@@ -176,4 +176,3 @@ function wodstar_search_row($title) {
     wp_enqueue_script( 'wodstar-child-script', get_stylesheet_directory_uri() . '/js/search-row.js', array(), '0.1.0', 1 );
   }
 }
-

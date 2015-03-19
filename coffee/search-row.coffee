@@ -2,6 +2,8 @@ class WodstarSearchRow
   constructor: (jQuery) ->
     @$ = jQuery
     @use_ajax = true
+    @search_value
+    @search_query
 
   init: () ->
     @$(document).ready (=>
@@ -16,11 +18,15 @@ class WodstarSearchRow
       if e.target.value != '' then @getQuery(e.target.value, null)
 
     @search_input.keyup (e) =>
+      @search_value = e.target.value
       if e.target.value.length > 2
-        query = document.location
-        params =
-          s:  encodeURI e.target.value
-        @getQuery(query, params)
+        if @search_query then clearTimeout @search_query
+        @search_query = setTimeout(=>
+          query = document.location
+          params =
+            s:  encodeURI e.target.value
+          @getQuery(query, params)
+        , 500)
 
   getQuery: (url, params) ->
     @$('#posts-container').infinitescroll('destroy')
@@ -45,9 +51,9 @@ class WodstarSearchRow
           # @$('.isotope')
           # .isotope
           #   layoutMode: 'fitRows'
-            # masonry:
-            #   columnWidth: @grid_width
-            #   gutter: 30
+          #   masonry:
+          #     columnWidth: @grid_width
+          #     gutter: 30
 
           @posts_container.isotope
             layoutMode: 'masonry'
@@ -57,7 +63,7 @@ class WodstarSearchRow
             masonry:
               columnWidth: 33
               gutter: 30
-          .isotope('layout')
+          # .isotope('layout')
         )
       )
     else

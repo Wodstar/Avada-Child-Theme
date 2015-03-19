@@ -4,6 +4,8 @@ WodstarSearchRow = (function() {
   function WodstarSearchRow(jQuery) {
     this.$ = jQuery;
     this.use_ajax = true;
+    this.search_value;
+    this.search_query;
   }
 
   WodstarSearchRow.prototype.init = function() {
@@ -27,13 +29,19 @@ WodstarSearchRow = (function() {
     })(this));
     return this.search_input.keyup((function(_this) {
       return function(e) {
-        var params, query;
+        _this.search_value = e.target.value;
         if (e.target.value.length > 2) {
-          query = document.location;
-          params = {
-            s: encodeURI(e.target.value)
-          };
-          return _this.getQuery(query, params);
+          if (_this.search_query) {
+            clearTimeout(_this.search_query);
+          }
+          return _this.search_query = setTimeout(function() {
+            var params, query;
+            query = document.location;
+            params = {
+              s: encodeURI(e.target.value)
+            };
+            return _this.getQuery(query, params);
+          }, 500);
         }
       };
     })(this));
@@ -69,7 +77,7 @@ WodstarSearchRow = (function() {
                 columnWidth: 33,
                 gutter: 30
               }
-            }).isotope('layout');
+            });
           });
         };
       })(this)));
