@@ -4,7 +4,6 @@ WodstarSearchRow = (function() {
   function WodstarSearchRow(jQuery) {
     this.$ = jQuery;
     this.use_ajax = true;
-    this.search_value;
     this.search_query;
   }
 
@@ -14,6 +13,8 @@ WodstarSearchRow = (function() {
         _this.filter_input = _this.$('#wodstar-filter-input');
         _this.search_input = _this.$('#wodstar-search-input');
         _this.results_display = _this.$('#main .avada-row');
+        _this.posts_container = _this.$('#posts-container');
+        _this.pagination_container = _this.$('.pagination');
         return _this.addListeners();
       };
     })(this)));
@@ -29,7 +30,6 @@ WodstarSearchRow = (function() {
     })(this));
     return this.search_input.keyup((function(_this) {
       return function(e) {
-        _this.search_value = e.target.value;
         if (e.target.value.length > 2) {
           if (_this.search_query) {
             clearTimeout(_this.search_query);
@@ -52,38 +52,79 @@ WodstarSearchRow = (function() {
     if (this.use_ajax) {
       return this.$.get(url, params).done(((function(_this) {
         return function(data) {
-          var ajax_dom, display_dom, display_posts;
+          var ajax_dom, display_posts, grid_width, pagination;
           ajax_dom = _this.$(data);
-          display_dom = ajax_dom.find('#posts-container');
           display_posts = ajax_dom.find('.post');
-          _this.results_display.html(display_dom);
+          pagination = ajax_dom.find('.pagination');
           _this.display_flexsliders = _this.results_display.find('.flexslider');
-          _this.posts_container = _this.results_display.find('#posts-container');
-          return _this.results_display.imagesLoaded().done(function() {
-            _this.grid_width = Math.floor(100 / 3) + '%';
-            _this.display_flexsliders.flexslider({
-              start: function(el) {
-                return el.parent().parent().css({
-                  'width': _this.grid_width
-                });
-              }
-            });
-            return _this.posts_container.isotope({
-              layoutMode: 'masonry',
-              itemSelector: '.post',
-              transformsEnabled: false,
-              resizable: true,
-              masonry: {
-                columnWidth: 33,
-                gutter: 30
-              }
-            });
+          grid_width = Math.floor(100 / 3 * 100) / 100 + '%';
+          console.log(pagination);
+          _this.pagination_container.html(pagination.html());
+          return _this.posts_container.html('').append(display_posts).find('.post').flexslider().imagesLoaded().done(function() {
+            _this.posts_container.isotope('destroy');
+            _this.isotopeify();
+            return _this.infilineScrollify();
           });
         };
       })(this)));
     } else {
       return document.location = url;
     }
+  };
+
+  WodstarSearchRow.prototype.isotopeify = function() {
+    if (jQuery().isotope) {
+      return jQuery('.grid-layout').each(function() {
+        var columns, grid_width, i;
+        columns = 2;
+        i = 0;
+        while (i < 7) {
+          if (jQuery(this).hasClass('grid-layout-' + i)) {
+            columns = i;
+          }
+          i++;
+        }
+        grid_width = Math.floor(100 / columns * 100) / 100 + '%';
+        jQuery(this).find('.post').css('width', grid_width);
+        jQuery(this).isotope({
+          layoutMode: 'masonry',
+          itemSelector: '.post',
+          transformsEnabled: false,
+          isOriginLeft: jQuery('body.rtl').length ? false : true,
+          resizable: true
+        });
+        if ((jQuery(this).hasClass('grid-layout-4') || jQuery(this).hasClass('grid-layout-5') || jQuery(this).hasClass('grid-layout-6')) && Modernizr.mq('only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait)')) {
+          grid_width = Math.floor(100 / 3 * 100) / 100 + '%';
+          jQuery(this).find('.post').css('width', grid_width);
+          jQuery(this).isotope({
+            layoutMode: 'masonry',
+            itemSelector: '.post',
+            transformsEnabled: false,
+            isOriginLeft: jQuery('body.rtl').length ? false : true,
+            resizable: true
+          });
+        }
+        console.log('isotopeify');
+      });
+    }
+  };
+
+  WodstarSearchRow.prototype.infilineScrollify = function() {
+    console.log('infinitescrollify');
+    return this.posts_container.infinitescroll({
+      navSelector: 'div.pagination',
+      nextSelector: 'a.pagination-next',
+      itemSelector: 'div.post, .timeline-date',
+      loading: {
+        finishedMsg: js_local_vars.infinite_finished_msg,
+        msg: jQuery('<div class="loading-container"><div class="loading-spinner"><div class="spinner-1"></div><div class="spinner-2"></div><div class="spinner-3"></div></div><div class="loading-msg">' + js_local_vars.infinite_blog_text + '</div>')
+      },
+      errorCallback: function() {
+        if (jQuery('#posts-container').hasClass('isotope')) {
+          return jQuery('#posts-container').isotope();
+        }
+      }
+    });
   };
 
   return WodstarSearchRow;

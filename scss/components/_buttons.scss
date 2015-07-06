@@ -3,3 +3,36 @@
     font-weight: 700;
   }
 }
+
+.promo-button {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: $wodstar-red;
+  padding: 15px 25px 15px 25px;
+  text-decoration: none;
+
+  &:hover {
+    background: $wodstar-red-dark;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .promo-button-text {
+    font-family: 'Montserrat', 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+}
+
+.promo-button-more {
+  background: $wodstar-blue;
+
+  &:hover {
+    background: $wodstar-blue-dark;
+  }
+}

@@ -697,6 +697,29 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .fusion-button .fusion-button-text {
   font-weight: 700; }
 
+.promo-button {
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #B5191D;
+  padding: 15px 25px 15px 25px;
+  text-decoration: none; }
+  .promo-button:hover {
+    background: #820805;
+    color: #ffffff;
+    text-decoration: none; }
+  .promo-button .promo-button-text {
+    font-family: 'Montserrat', 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase; }
+
+.promo-button-more {
+  background: #2E4359; }
+  .promo-button-more:hover {
+    background: #223140; }
+
 body.category #main {
   padding-top: 20px; }
 

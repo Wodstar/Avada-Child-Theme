@@ -30,7 +30,7 @@ function eff_with_avada_menu() {
 }
 
 // this is wrapped in after_setup_theme because it has to happen later than when the functions.php file runs...
-add_action('after_setup_theme', 'eff_with_avada_menu');
+// add_action('after_setup_theme', 'eff_with_avada_menu');
 
 /**
  * Inserts a DOM element into the tail end of the navigation menu.
